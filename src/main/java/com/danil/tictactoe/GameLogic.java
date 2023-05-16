@@ -1,12 +1,13 @@
 package com.danil.tictactoe;
 
+import java.util.Scanner;
+
 import com.danil.tictactoe.player.BotPlayer;
 import com.danil.tictactoe.player.HumanPlayer;
 import com.danil.tictactoe.player.Player;
 
 class GameLogic {
     GameLogic() {
-        init();
     }
 
     public void run() {
@@ -27,12 +28,18 @@ class GameLogic {
         }
     }
 
-    private void init() {
+    public void init() {
         mPlayers = new Player[2];
-        mPlayers[0] = new HumanPlayer("Player 1", Field.FieldType.CROSS);
-        mPlayers[1] = new BotPlayer("Bot", Field.FieldType.NOUGHT);
+
+        System.out.print("Input your name: ");
+        Scanner scanner = new Scanner(System.in);
+        String name = scanner.nextLine();
+        mPlayers[0] = new HumanPlayer(name, Field.FieldType.CROSS);
+        mPlayers[1] = new BotPlayer("RandBot", Field.FieldType.NOUGHT);
         mWinner = Field.Winner.NONE;
         mField = new Field();
+
+        printWelcomeMessage(mPlayers[0]);
     }
 
     private void loop() {
@@ -60,6 +67,10 @@ class GameLogic {
 
     private void render() {
         System.out.println(mField);
+    }
+
+    private void printWelcomeMessage(Player player) {
+        System.out.println("Hello, " + player.getName() + "! You are playing for cross. Type in coords [0;2] [0;2].");
     }
 
     private boolean mExit;

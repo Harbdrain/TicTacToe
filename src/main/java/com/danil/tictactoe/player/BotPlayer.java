@@ -8,6 +8,7 @@ import com.danil.tictactoe.Field.FieldType;
 public class BotPlayer implements Player {
     public BotPlayer(String name) {
         mName = name;
+        mFieldType = Field.FieldType.NONE;
     }
 
     public BotPlayer(String name, Field.FieldType fieldType) {

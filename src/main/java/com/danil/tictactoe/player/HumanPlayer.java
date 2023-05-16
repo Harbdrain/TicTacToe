@@ -8,7 +8,7 @@ import com.danil.tictactoe.Field.FieldType;
 public class HumanPlayer implements Player {
     public HumanPlayer(String name) {
         mName = name;
-        System.out.println("Hello, " + mName + "! You are playing for cross. Type in coords [0;2] [0;2].");
+        mFieldType = Field.FieldType.NONE;
     }
 
     public HumanPlayer(String name, Field.FieldType fieldType) {
@@ -39,6 +39,7 @@ public class HumanPlayer implements Player {
     public String getName() {
         return mName;
     }
+
 
     private String mName;
     private Field.FieldType mFieldType;
