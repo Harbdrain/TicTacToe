@@ -25,7 +25,7 @@ public class HumanPlayer implements Player {
             System.out.print(mName + ": ");
             x = scanner.nextInt();
             y = scanner.nextInt();
-        } while (!(x > -1 && x < 3 && y > -1 && y < 3));
+        } while (!(x > -1 && x < 3 && y > -1 && y < 3 && field.getRawField(x, y) == 0));
 
         field.setField(x, y, mFieldType);
     }
