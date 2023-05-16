@@ -8,6 +8,7 @@ import com.danil.tictactoe.Field.FieldType;
 public class HumanPlayer implements Player {
     public HumanPlayer(String name) {
         mName = name;
+        System.out.println("Hello, " + mName + "! You are playing for cross. Type in coords [0;2] [0;2].");
     }
 
     public HumanPlayer(String name, Field.FieldType fieldType) {
