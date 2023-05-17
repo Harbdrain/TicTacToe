@@ -32,7 +32,7 @@ class GameLogic {
         mPlayers = new Player[2];
 
         System.out.print("Input your name: ");
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = Utils.scanner;
         String name = scanner.nextLine();
         mPlayers[0] = new HumanPlayer(name, Field.FieldType.CROSS);
         mPlayers[1] = new BotPlayer("RandBot", Field.FieldType.NOUGHT);

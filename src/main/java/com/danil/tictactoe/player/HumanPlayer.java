@@ -3,6 +3,7 @@ package com.danil.tictactoe.player;
 import java.util.Scanner;
 
 import com.danil.tictactoe.Field;
+import com.danil.tictactoe.Utils;
 import com.danil.tictactoe.Field.FieldType;
 
 public class HumanPlayer implements Player {
@@ -20,7 +21,7 @@ public class HumanPlayer implements Player {
     public void makeMove(Field field) {
         int x;
         int y;
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = Utils.scanner;
         do {
             System.out.print(mName + ": ");
             x = scanner.nextInt();
@@ -39,7 +40,6 @@ public class HumanPlayer implements Player {
     public String getName() {
         return mName;
     }
-
 
     private String mName;
     private Field.FieldType mFieldType;
