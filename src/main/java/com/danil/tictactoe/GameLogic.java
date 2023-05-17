@@ -66,6 +66,7 @@ class GameLogic {
     }
 
     private void render() {
+        System.out.println();
         System.out.println(mField);
     }
 
