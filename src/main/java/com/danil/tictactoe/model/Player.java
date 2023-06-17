@@ -5,9 +5,9 @@ import com.danil.tictactoe.utils.coordinates.Coord;
 public interface Player {
     Coord makeMove();
 
+    Figure getType();
+
     void setType(Figure figure);
 
     String getName();
-
-    Figure getType();
 }

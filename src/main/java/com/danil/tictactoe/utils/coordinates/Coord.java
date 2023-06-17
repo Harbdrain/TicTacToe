@@ -1,32 +1,32 @@
 package com.danil.tictactoe.utils.coordinates;
 
 public class Coord {
-    private int mX;
-    private int mY;
+    private int x;
+    private int y;
 
     public Coord(int x, int y) {
-        mX = x;
-        mY = y;
+        this.x = x;
+        this.y = y;
     }
 
     public int getX() {
-        return mX;
+        return this.x;
     }
 
     public void setX(int x) {
-        mX = x;
+        this.x = x;
     }
 
     public int getY() {
-        return mY;
+        return this.y;
     }
 
     public void setY(int y) {
-        mY = y;
+        this.y = y;
     }
 
     public void setXY(int x, int y) {
-        mX = x;
-        mY = y;
+        this.x = x;
+        this.y = y;
     }
 }

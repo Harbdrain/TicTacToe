@@ -6,24 +6,24 @@ import com.danil.tictactoe.utils.ConsoleUtils;
 import com.danil.tictactoe.utils.coordinates.Coord;
 
 public class HumanPlayer implements Player {
-    private String mName;
-    private Figure mFigure;
+    private String name;
+    private Figure figure;
     private final Scanner scanner = ConsoleUtils.scanner;
 
     public HumanPlayer(String name) {
-        mName = name;
-        mFigure = Figure.NONE;
+        this.name = name;
+        figure = Figure.NONE;
     }
 
     public HumanPlayer(String name, Figure figure) {
         this(name);
-        mFigure = figure;
+        this.figure = figure;
     }
 
     @Override
     public Coord makeMove() {
         int xAxis, yAxis;
-        System.out.print(mName + ": ");
+        System.out.print(name + ": ");
         xAxis = scanner.nextInt();
         yAxis = scanner.nextInt();
         return new Coord(xAxis, yAxis);
@@ -31,17 +31,17 @@ public class HumanPlayer implements Player {
 
     @Override
     public Figure getType() {
-        return mFigure;
+        return this.figure;
     }
 
     @Override
     public void setType(Figure figure) {
-        mFigure = figure;
+        this.figure = figure;
     }
 
     @Override
     public String getName() {
-        return mName;
+        return this.name;
     }
 
 }

@@ -11,42 +11,42 @@ import com.danil.tictactoe.utils.ConsoleUtils;
 import com.danil.tictactoe.utils.coordinates.Coord;
 
 public class GameLogic implements Logic {
-    private final Field mField = new Field();
-    private Player[] mPlayers;
+    private final Field field = new Field();
+    private Player[] players;
 
     public GameLogic() {
-        mPlayers = new Player[2];
+        players = new Player[2];
 
         Scanner scanner = ConsoleUtils.scanner;
         System.out.print("Input your name: ");
         String name = scanner.nextLine();
-        mPlayers[0] = new HumanPlayer(name, Figure.CROSS);
-        mPlayers[1] = new BotPlayer("BOT", Figure.NOUGHT);
+        players[0] = new HumanPlayer(name, Figure.CROSS);
+        players[1] = new BotPlayer("BOT", Figure.NOUGHT);
     }
 
     public void run() {
-        printWelcomeMessage(mPlayers[0]);
+        printWelcomeMessage(players[0]);
 
         int turn = 0;
         Winner winner;
         while ((winner = checkWinner()) == null) {
             System.out.println();
-            mField.showField();
+            field.showField();
 
-            Player player = mPlayers[turn];
+            Player player = players[turn];
             Coord playerInput = getPlayerInput(player);
-            mField.setValue(player.getType(), playerInput);
+            field.setValue(player.getType(), playerInput);
 
             turn ^= 1;
         }
 
         System.out.println();
-        mField.showField();
+        field.showField();
         if (winner == Winner.DRAW) {
             System.out.println("Draw!");
         } else {
             turn ^= 1;
-            System.out.println(mPlayers[turn].getName() + " wins!");
+            System.out.println(players[turn].getName() + " wins!");
         }
     }
 
@@ -60,15 +60,15 @@ public class GameLogic implements Logic {
             int sumLine = 0;
             int sumColumn = 0;
             for (int j = 0; j < 3; j++) {
-                if (mField.getValue(i, j) == Figure.NONE) {
+                if (field.getValue(i, j) == Figure.NONE) {
                     checkDraw = false;
                 }
 
-                sumLine += mField.getValue(i, j).getValue();
-                sumColumn += mField.getValue(j, i).getValue();
+                sumLine += field.getValue(i, j).getValue();
+                sumColumn += field.getValue(j, i).getValue();
             }
-            sumDiag += mField.getValue(i, i).getValue();
-            sumRDiag += mField.getValue(i, 2 - i).getValue();
+            sumDiag += field.getValue(i, i).getValue();
+            sumRDiag += field.getValue(i, 2 - i).getValue();
 
             winner = getCrossNoughtWinnerBySum(sumLine);
             if (winner != null) {
@@ -117,7 +117,7 @@ public class GameLogic implements Logic {
 
     private boolean validateInput(Coord input) {
         return input.getX() > -1 && input.getX() < 3 && input.getY() > -1 && input.getY() < 3
-                && mField.getValue(input) == Figure.NONE;
+                && field.getValue(input) == Figure.NONE;
     }
 
     private void printWelcomeMessage(Player player) {

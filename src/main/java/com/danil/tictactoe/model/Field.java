@@ -5,22 +5,22 @@ import java.util.Arrays;
 import com.danil.tictactoe.utils.coordinates.Coord;
 
 public class Field {
-    private final Figure[] mStorage = new Figure[9];
+    private final Figure[] storage = new Figure[9];
 
     public Field() {
-        Arrays.fill(mStorage, Figure.NONE);
+        Arrays.fill(storage, Figure.NONE);
     }
 
     public Figure getValue(Coord coord) {
-        return mStorage[coord.getX() * 3 + coord.getY()];
+        return storage[coord.getX() * 3 + coord.getY()];
     }
 
     public Figure getValue(int x, int y) {
-        return mStorage[x * 3 + y];
+        return storage[x * 3 + y];
     }
 
     public void setValue(Figure value, Coord coord) {
-        this.mStorage[coord.getX() * 3 + coord.getY()] = value;
+        this.storage[coord.getX() * 3 + coord.getY()] = value;
     }
 
     public void showField() {
@@ -31,7 +31,7 @@ public class Field {
             }
 
             char c;
-            switch (mStorage[i]) {
+            switch (storage[i]) {
                 case NOUGHT:
                     c = 'o';
                     break;

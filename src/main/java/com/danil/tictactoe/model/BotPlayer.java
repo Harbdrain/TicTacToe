@@ -5,19 +5,19 @@ import java.util.Random;
 import com.danil.tictactoe.utils.coordinates.Coord;
 
 public class BotPlayer implements Player {
-    private String mName;
-    private Figure mFigure;
+    private String name;
+    private Figure figure;
 
     private final Random mRandom = new Random();
 
     public BotPlayer(String name) {
-        mName = name;
-        mFigure = Figure.NONE;
+        this.name = name;
+        figure = Figure.NONE;
     }
 
     public BotPlayer(String name, Figure figure) {
         this(name);
-        mFigure = figure;
+        this.figure = figure;
     }
 
     @Override
@@ -29,16 +29,16 @@ public class BotPlayer implements Player {
 
     @Override
     public Figure getType() {
-        return mFigure;
+        return figure;
     }
 
     @Override
     public void setType(Figure fieldType) {
-        mFigure = fieldType;
+        figure = fieldType;
     }
 
     @Override
     public String getName() {
-        return mName;
+        return name;
     }
 }
